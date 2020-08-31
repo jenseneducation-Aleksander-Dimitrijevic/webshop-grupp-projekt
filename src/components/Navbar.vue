@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="burger" @click="isOpen = false">Burger Icon</button>
+    <button class="burger" @click="isOpen = !isOpen">Burger Icon</button>
     <div class="side-menu" v-if="isOpen">Side Menu</div>
   </div>
 </template>
