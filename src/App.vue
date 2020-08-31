@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <router-view />
   </div>
 </template>
@@ -8,5 +8,10 @@
 export default {};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 </style>
