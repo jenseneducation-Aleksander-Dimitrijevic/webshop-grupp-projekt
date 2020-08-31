@@ -1,9 +1,16 @@
 <template>
-  <div></div>
+  <div>
+    <Card />
+  </div>
 </template>
 
 <script>
-export default {};
+import Card from "@/components/Card.vue";
+export default {
+  components: {
+    Card,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
