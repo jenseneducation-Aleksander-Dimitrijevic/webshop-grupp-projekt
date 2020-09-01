@@ -19,33 +19,29 @@ describe('Products', () => {
 })
 
 describe('Navbar', () => {
-
     let wrapper;
     let button
-    let sideMenu
     beforeEach(() => {
         wrapper = shallowMount(Navbar)
-        button = wrapper.find('.burger')
-        sideMenu = wrapper.find('.side-menu')
-
+        button = wrapper.find('button')
     })
 
     test('Show if side menu is visible on startup', async () => {
-        expect(sideMenu.exists()).toBe(true)
 
-        //     const hamburgerIcon = wrapper.find('.hamburgerIcon')
-        //     expect(hamburgerIcon.exists()).toBe(false)
-        //     await hamburgerIcon.trigger('click')
-        //     expect(hamburgerIcon).toBe(true)
-        // })
+        await wrapper.setData({
+            isOpen: true
+        })
+
+        expect(wrapper.find('.side-menu').exists()).toBe(true)
     })
 
-    test('When hamburger-bar is clicked on, it should turn to X', () => {
-
+    test('when clicking on hamburger button, show side menu component', async () => {
+        await button.trigger('click')
+        expect(wrapper.find('.side-menu').exists()).toBe(true)
     })
 
-    test('When purchasing products, the quantity should show on the cart', () => {
-
-
-    })
 })
+
+
+
+
