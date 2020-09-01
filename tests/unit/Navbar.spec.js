@@ -4,11 +4,6 @@ import { shallowMount } from '@vue/test-utils';
 
 describe('Products', () => {
 
-    // let wrapper;
-    // beforeEach(() => {
-    //     wrapper = shallowMount(Navbar);
-    // });
-
     test('Should redirect you to desired page, when clicking on a link', () => {
         const $route = {
             path: '/products'
@@ -35,7 +30,7 @@ describe('Navbar', () => {
 
     })
 
-    test('show if side menu is visible on startup', async () => {
+    test('Show if side menu is visible on startup', async () => {
         expect(sideMenu.exists()).toBe(true)
 
         //     const hamburgerIcon = wrapper.find('.hamburgerIcon')
@@ -43,5 +38,14 @@ describe('Navbar', () => {
         //     await hamburgerIcon.trigger('click')
         //     expect(hamburgerIcon).toBe(true)
         // })
+    })
+
+    test('When hamburger-bar is clicked on, it should turn to X', () => {
+
+    })
+
+    test('When purchasing products, the quantity should show on the cart', () => {
+
+
     })
 })
