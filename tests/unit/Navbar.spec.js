@@ -40,6 +40,19 @@ describe('Navbar', () => {
         expect(wrapper.find('.side-menu').exists()).toBe(true)
     })
 
+    test('show name in products component, using route params, when clicking on router link', () => {
+        const name = "Elam"
+        const wrapper = shallowMount(Products, {
+            mocks: {
+                $route: {
+                    params: { name }
+                }
+            }
+        })
+
+        expect(wrapper.find(".name").text()).toBe(name)
+    })
+
 })
 
 
