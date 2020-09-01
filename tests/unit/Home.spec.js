@@ -7,13 +7,13 @@ describe("Card.vue", () => {
   });
 
   it("should show h2", () => {
-    const acualText = "Buy a shoe";
+    const acualText = "Buy a shoe!";
     const content = wrapper.find("h2").text();
     expect(content).toBe(acualText);
   });
-  it("should show h2", () => {
+  it("should show h4", () => {
     const acualText = "100% SATISFACTION GUARANTEE";
-    const content = wrapper.find("h3").text();
+    const content = wrapper.find("h4").text();
     expect(content).toBe(acualText);
   });
 });
