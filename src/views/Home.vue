@@ -1,17 +1,18 @@
+
 <template>
-  <div>
-    <Card />
+  <div class="wrapper">
+    <Header />
   </div>
 </template>
 
 <script>
-import Card from "@/components/Card.vue";
+import Header from "@/components/Header.vue";
 export default {
   components: {
-    Card,
+    Header,
   },
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
+
