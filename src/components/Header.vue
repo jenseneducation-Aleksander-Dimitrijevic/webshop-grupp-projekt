@@ -1,13 +1,14 @@
 <template>
   <div class="wrapper">
     <div class="content">
-      <router-link to="/products">Buy a shoe!</router-link>
+      <router-link to="/products" class="button">Buy a shoe!</router-link>
       <h4>100% SATISFACTION GUARANTEE</h4>
     </div>
   </div>
 </template>
 
 <script>
+// import VueRouter from "vue-router";
 export default {};
 </script>
 
