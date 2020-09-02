@@ -1,7 +1,7 @@
-import Products from "@/components/Products.vue";
+import Products from "@/views/Products.vue";
 import { shallowMount } from "@vue/test-utils";
 jest.mock("axios", () => ({
-  get: () => Promise.resolve({ data: [{ name: "Vans Black Edition" }] }),
+  get: () => Promise.resolve({ data: [{ name: "Vans Black" }] }),
 }));
 
 describe("Products.vue", () => {
@@ -10,9 +10,9 @@ describe("Products.vue", () => {
     wrapper = shallowMount(Products);
   });
 
-  test("return one product name to be Vans Black Edition", async () => {
+  test("return one product name to be Vans Black", async () => {
     await wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.products).toEqual([{ name: "Vans Black Edition" }]);
+      expect(wrapper.vm.products).toEqual([{ name: "Vans Black" }]);
     });
   });
 });
