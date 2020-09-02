@@ -9,7 +9,7 @@
       <router-link to="contact">Contact</router-link>
     </div>
     <span class="lnr lnr-cart"></span>
-    <div class="dots">
+    <div class="dots" @click="$store.commit('TOGGLE_SIDE_MENU')">
       <div />
       <div />
       <div />
@@ -26,6 +26,7 @@ export default {};
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 2;
   width: 100%;
   height: 50px;
   display: flex;

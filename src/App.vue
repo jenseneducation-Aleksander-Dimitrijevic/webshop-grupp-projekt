@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <Navbar />
+    <app-side-menu />
     <router-view />
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import AppSideMenu from "@/components/AppSideMenu.vue";
 export default {
   components: {
     Navbar,
+    AppSideMenu,
   },
 };
 </script>
