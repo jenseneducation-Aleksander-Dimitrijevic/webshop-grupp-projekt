@@ -1,47 +1,27 @@
+import { mount, shallowMount, createLocalVue } from '@vue/test-utils';
 import Navbar from '@/components/Navbar.vue';
+import VueRouter from 'vue-router'
 import Products from '@/views/Products.vue';
-import { shallowMount } from '@vue/test-utils';
+import routes from '@/router/index.js';
 
-describe('Products', () => {
-
-    test('Should redirect you to desired page, when clicking on a link', () => {
-        const $route = {
-            path: '/products'
-        }
-        const wrapper = shallowMount(Products, {
-            mocks: {
-                $route
-            }
-        })
-        expect(wrapper.vm.$route.path).toBe('/products')
-    });
-
-})
+const localVue = createLocalVue()
+localVue.use(VueRouter)
 
 describe('Navbar', () => {
-    let wrapper;
-    let button
-    beforeEach(() => {
-        wrapper = shallowMount(Navbar)
-        button = wrapper.find('button')
-    })
 
-    test('Show if side menu is visible on startup', async () => {
+    test('render component via routing', async () => {
 
-        await wrapper.setData({
-            isOpen: true
+        const router = new VueRouter({ routes, mode: 'history' })
+        const wrapper = mount(Navbar, {
+            localVue,
+            router
         })
 
-        expect(wrapper.find('.side-menu').exists()).toBe(true)
-    })
+        router.push('/products')
+        await wrapper.vm.$nextTick()
 
-    test('when clicking on hamburger button, show side menu component', async () => {
-        await button.trigger('click')
-        expect(wrapper.find('.side-menu').exists()).toBe(true)
+        expect(wrapper.findComponent(Products).exists()).toBe(true)
+
     })
 
 })
-
-
-
-
