@@ -4,7 +4,7 @@
     :style="{ backgroundImage: `url(${require('@/assets/banner-image.png')})` }"
   >
     <div class="showcase-content">
-      <router-link to="/products">Buy a show</router-link>
+      <router-link to="/products">Buy a shoe</router-link>
       <p>100<span>% SATISFACTION GUARANTEE !</span></p>
     </div>
   </header>
