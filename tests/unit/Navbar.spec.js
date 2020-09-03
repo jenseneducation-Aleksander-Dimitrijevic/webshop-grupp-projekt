@@ -1,28 +1,14 @@
-import { mount, shallowMount, createLocalVue } from '@vue/test-utils';
-import Navbar from '@/components/Navbar.vue';
-import VueRouter from 'vue-router'
-import Products from '@/views/Products.vue';
-import routes from '@/router/index.js';
+import Navbar from "@/components/Navbar.vue";
+import { mount, RouterLinkStub } from '@vue/test-utils'
 
-const localVue = createLocalVue()
-localVue.use(VueRouter)
+const wrapper = mount(Navbar, {
+    stubs: {
+        RouterLink: RouterLinkStub
+    }
+});
 
-
-describe('Navbar', () => {
-
-    test('render component via routing', async () => {
-
-        const router = new VueRouter({ routes, mode: 'history' })
-        const wrapper = mount(Navbar, {
-            localVue,
-            router
-        })
-
-        router.push('/products')
-        await wrapper.vm.$nextTick()
-
-        expect(wrapper.findComponent(Products).exists()).toBe(true)
-
-    })
-
+describe('Products', () => {
+    test("Show if router prop is set with '/' url ", () => {
+        expect(wrapper.findComponent(RouterLinkStub).props().to).toBe("/");
+    });
 })
