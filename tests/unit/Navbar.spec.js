@@ -7,6 +7,7 @@ import routes from '@/router/index.js';
 const localVue = createLocalVue()
 localVue.use(VueRouter)
 
+
 describe('Navbar', () => {
 
     test('render component via routing', async () => {
