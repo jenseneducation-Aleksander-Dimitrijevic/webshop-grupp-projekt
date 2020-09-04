@@ -1,24 +1,26 @@
 <template>
   <div class="card">
     <div>
-      <h1 class="vans">Vans Old school</h1>
-      <img src="../assets/vans1.png" alt="vans" />
+      <h1 class="vans">{{ product.name }}</h1>
+      <img :src="require('../assets/' + product.img + '.png')" alt="shoe" />
       <p class="price">
-        <span>800kr</span>
+        <span>{{ product.price }} kr</span>
       </p>
-      <p class="info">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
-        totam corporis similique eligendi doloremque exercitationem odit
-        praesentium quos qui reiciendis, delectus ipsam saepe in ratione
-        voluptatibus. Illum numquam maxime voluptas.
-      </p>
+      <p class="info">{{ product.description }}</p>
       <button class="cart">Add to basket</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    product: {
+      type: Object,
+      default: null,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

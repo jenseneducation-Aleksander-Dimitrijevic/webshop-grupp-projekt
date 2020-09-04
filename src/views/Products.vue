@@ -12,7 +12,13 @@
       <li class="list-item" v-for="product in products" :key="product.id">
         <div
           class="product-image"
-          :style="{backgroundImage: 'url('+require('../assets/'+product.img+'.png')+')'}"
+          :style="{
+            backgroundImage:
+              'url(' + require('../assets/' + product.img + '.png') + ')',
+          }"
+          @click="
+            $router.push({ name: 'shoes', params: { id: product.id, product } })
+          "
         ></div>
         <p class="product-detail">
           <span>{{ product.name }}</span>
@@ -63,18 +69,20 @@ export default {
   }
 
   .product-list {
-    gap: 6rem 1rem;
     display: grid;
+    gap: 6rem 1rem;
     list-style: none;
     grid-template-columns: repeat(2, 1fr);
 
     .list-item {
       width: 100%;
       display: block;
+      max-width: 200px;
       border-radius: 3px;
 
       .product-image {
         height: 100px;
+        width: 100%;
         background: no-repeat center/contain;
       }
 
@@ -93,5 +101,8 @@ export default {
       }
     }
   }
+}
+
+@media screen and (min-width: 1024px) {
 }
 </style>
