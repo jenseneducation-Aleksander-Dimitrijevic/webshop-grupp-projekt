@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" v-if="product">
     <div>
       <h1 class="vans">{{ product.name }}</h1>
       <img :src="require('../assets/' + product.img + '.png')" alt="shoe" />
@@ -7,7 +7,7 @@
         <span>{{ product.price }} kr</span>
       </p>
       <p class="info">{{ product.description }}</p>
-      <button class="cart">Add to basket</button>
+      <button class="cart" id="button" @click="addToCart(product)">Add to basket</button>
     </div>
   </div>
 </template>
@@ -18,6 +18,11 @@ export default {
     product: {
       type: Object,
       default: null,
+    },
+  },
+  methods: {
+    addToCart(product) {
+      this.$store.commit("ADD_TO_CART", product);
     },
   },
 };

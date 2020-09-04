@@ -5,11 +5,17 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    isOpen: false
+    isOpen: false,
+    products: []
+
   },
   mutations: {
     TOGGLE_SIDE_MENU(state) {
       state.isOpen = !state.isOpen
+    },
+    ADD_TO_CART(state, product) {
+      state.products.push(product)
+      console.log(state.products)
     }
   },
   actions: {
