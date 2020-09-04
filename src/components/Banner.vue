@@ -33,6 +33,7 @@ export default {};
   .showcase-content {
     width: 100%;
     margin: auto;
+    max-width: 560px;
     text-align: center;
     position: relative;
     a {
