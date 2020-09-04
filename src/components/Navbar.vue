@@ -1,6 +1,9 @@
 <template>
   <nav class="nav-bar">
-    <span class="lnr lnr-home home-icon" @click="$router.push({name: 'Home'}).catch(() => {})"></span>
+    <span
+      class="lnr lnr-home home-icon"
+      @click="$router.push({ name: 'Home' }).catch(() => {})"
+    ></span>
     <div class="nav-links">
       <router-link to="/" class="brand">WholeSale Shoes</router-link>|
       <router-link to="/products">Shop</router-link>
@@ -8,7 +11,7 @@
       <router-link to="contact">Contact</router-link>
     </div>
     <span class="lnr lnr-cart">
-      <span class="bubble">1</span>
+      <span class="bubble">{{ products.length }}</span>
     </span>
     <div class="dots" @click="$store.commit('TOGGLE_SIDE_MENU')">
       <div />

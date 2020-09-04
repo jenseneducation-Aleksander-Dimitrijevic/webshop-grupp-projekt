@@ -47,7 +47,8 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding: 1rem;
-  margin: 0 0 100px 0;
+  max-width: 1440px;
+  margin: 0 auto 100px auto;
 
   a {
     color: #000;
@@ -55,6 +56,10 @@ export default {
     margin-bottom: 1rem;
     display: inline-block;
     text-decoration: none;
+
+    span {
+      display: none;
+    }
   }
 
   h1 {
@@ -63,6 +68,7 @@ export default {
     font-weight: bolder;
 
     span {
+      color: #999;
       font-size: 0.8rem;
       font-weight: lighter;
     }
@@ -75,15 +81,13 @@ export default {
     grid-template-columns: repeat(2, 1fr);
 
     .list-item {
-      width: 100%;
-      display: block;
-      max-width: 200px;
+      cursor: pointer;
       border-radius: 3px;
 
       .product-image {
-        height: 100px;
         width: 100%;
-        background: no-repeat center/contain;
+        height: 200px;
+        background: no-repeat center center/cover;
       }
 
       .product-detail {
@@ -93,16 +97,27 @@ export default {
         font-weight: bold;
         justify-content: space-between;
       }
-
-      img {
-        width: 100%;
-        display: block;
-        margin: 2rem 0;
-      }
     }
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: 50px;
+
+    .product-list {
+      gap: 8rem 4rem;
+      .list-item {
+        .product-image {
+          width: 100%;
+          height: 300px;
+        }
+
+        .product-detail {
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 </style>
