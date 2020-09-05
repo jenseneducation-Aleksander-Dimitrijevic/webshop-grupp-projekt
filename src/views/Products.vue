@@ -10,16 +10,14 @@
     </h1>
     <ul class="product-list">
       <li class="list-item" v-for="product in products" :key="product.id">
-        <div
+        <img
           class="product-image"
-          :style="{
-            backgroundImage:
-              'url(' + require('../assets/' + product.img + '.png') + ')',
-          }"
+          :src="require('../assets/' + product.img + '.png')"
           @click="
             $router.push({ name: 'shoes', params: { id: product.id, product } })
           "
-        ></div>
+          alt="product image"
+        />
         <p class="product-detail">
           <span>{{ product.name }}</span>
           <span class="price">{{ product.price }} kr</span>
@@ -46,8 +44,8 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding: 1rem;
   max-width: 1440px;
+  padding: 1rem 2rem;
   margin: 0 auto 100px auto;
 
   a {
@@ -86,8 +84,7 @@ export default {
 
       .product-image {
         width: 100%;
-        height: 200px;
-        background: no-repeat center center/cover;
+        height: 100px;
       }
 
       .product-detail {
@@ -107,10 +104,11 @@ export default {
 
     .product-list {
       gap: 8rem 4rem;
+
       .list-item {
         .product-image {
           width: 100%;
-          height: 300px;
+          height: 400px;
         }
 
         .product-detail {

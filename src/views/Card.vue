@@ -10,9 +10,7 @@
         <span>{{ product.price }} kr</span>
       </p>
       <p class="info">{{ product.description }}</p>
-      <button class="cart" id="button" @click="addToCart(product)">
-        Add to basket
-      </button>
+      <button class="cart" id="button" @click="addToCart(product)">Add to basket</button>
     </div>
   </div>
 </template>
@@ -59,8 +57,6 @@ export default {
       }
     }
     .info {
-      max-width: 300px;
-      padding: 2rem 0;
       font-size: 18px;
     }
     img {
