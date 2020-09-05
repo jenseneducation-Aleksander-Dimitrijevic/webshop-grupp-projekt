@@ -28,7 +28,6 @@ export default {
 }
 
 body {
-  overflow-x: hidden;
   font-family: "Open Sans", sans-serif;
 }
 

@@ -1,16 +1,20 @@
 <template>
   <div class="card" v-if="product">
     <div class="card-content">
-      <h1 class="vans">
-        {{ product.name }}
-        <span class="close-modal" @click="$router.go(-1)">&times;</span>
-      </h1>
-      <img :src="require('../assets/' + product.img + '.png')" alt="shoe" />
-      <p class="price">
-        <span>{{ product.price }} kr</span>
-      </p>
-      <p class="info">{{ product.description }}</p>
-      <button class="cart" id="button" @click="addToCart(product)">Add to basket</button>
+      <section class="content-left">
+        <h1 class="vans">
+          {{ product.name }}
+          <span class="close-modal" @click="$router.go(-1)">&times;</span>
+        </h1>
+        <img :src="require('../assets/' + product.img + '.png')" alt="shoe" />
+        <p class="price">
+          <span>{{ product.price }} kr</span>
+        </p>
+      </section>
+      <section class="content-right">
+        <p class="info">{{ product.description }}</p>
+        <button class="cart" id="button" @click="addToCart(product)">Add to basket</button>
+      </section>
     </div>
   </div>
 </template>
@@ -87,20 +91,49 @@ export default {
 @media screen and (min-width: 768px) {
   .card {
     &-content {
-      padding: 2rem;
-      border-radius: 10px;
+      gap: 0 2rem;
+      display: grid;
+      height: 500px;
+      max-width: 768px;
+      padding: 4rem 2rem;
+      position: relative;
+      border-radius: 5px;
+      grid-template-columns: repeat(2, 1fr);
       box-shadow: 0 0 10px rgba(#000, 0.2);
       .close-modal {
-        top: 3rem;
-        right: 5rem;
+        top: 0rem;
+        right: 1rem;
         color: #000;
         font-size: 5rem;
         cursor: pointer;
         position: absolute;
       }
 
-      button {
-        margin-bottom: 1rem;
+      .content-left {
+        .vans {
+          padding: 0;
+        }
+        img {
+          height: 200px;
+          display: block;
+        }
+        .price {
+          margin: 0;
+          padding: 0;
+          font-weight: bolder;
+        }
+      }
+
+      .content-right {
+        p {
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+        button {
+          width: 200px;
+          margin: unset;
+          font-size: 1.2rem;
+        }
       }
     }
   }
