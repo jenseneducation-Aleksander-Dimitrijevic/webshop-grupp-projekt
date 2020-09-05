@@ -1,6 +1,9 @@
 <template>
   <nav class="nav-bar">
-    <span class="lnr lnr-home home-icon" @click="$router.push({ name: 'Home' }).catch(() => {})"></span>
+    <span
+      class="lnr lnr-home home-icon"
+      @click="$router.push({ name: 'Home' }).catch(() => {})"
+    ></span>
     <div class="nav-links">
       <router-link to="/" class="brand">WholeSale Shoes</router-link>|
       <router-link to="/products">Shop</router-link>
