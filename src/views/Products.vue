@@ -10,10 +10,14 @@
     </h1>
     <ul class="product-list">
       <li class="list-item" v-for="product in products" :key="product.id">
-        <div
+        <img
           class="product-image"
-          :style="{backgroundImage: 'url('+require('../assets/'+product.img+'.png')+')'}"
-        ></div>
+          :src="require('../assets/' + product.img + '.png')"
+          @click="
+            $router.push({ name: 'shoes', params: { id: product.id, product } })
+          "
+          alt="product image"
+        />
         <p class="product-detail">
           <span>{{ product.name }}</span>
           <span class="price">{{ product.price }} kr</span>
@@ -40,8 +44,9 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding: 1rem;
-  margin: 0 0 100px 0;
+  max-width: 1440px;
+  padding: 1rem 2rem;
+  margin: 0 auto 100px auto;
 
   a {
     color: #000;
@@ -49,6 +54,10 @@ export default {
     margin-bottom: 1rem;
     display: inline-block;
     text-decoration: none;
+
+    span {
+      display: none;
+    }
   }
 
   h1 {
@@ -57,25 +66,25 @@ export default {
     font-weight: bolder;
 
     span {
+      color: #999;
       font-size: 0.8rem;
       font-weight: lighter;
     }
   }
 
   .product-list {
-    gap: 6rem 1rem;
     display: grid;
+    gap: 6rem 1rem;
     list-style: none;
     grid-template-columns: repeat(2, 1fr);
 
     .list-item {
-      width: 100%;
-      display: block;
+      cursor: pointer;
       border-radius: 3px;
 
       .product-image {
+        width: 100%;
         height: 100px;
-        background: no-repeat center/contain;
       }
 
       .product-detail {
@@ -85,11 +94,26 @@ export default {
         font-weight: bold;
         justify-content: space-between;
       }
+    }
+  }
+}
 
-      img {
-        width: 100%;
-        display: block;
-        margin: 2rem 0;
+@media screen and (min-width: 768px) {
+  .container {
+    margin-top: 50px;
+
+    .product-list {
+      gap: 8rem 4rem;
+
+      .list-item {
+        .product-image {
+          width: 100%;
+          height: 400px;
+        }
+
+        .product-detail {
+          text-align: center;
+        }
       }
     }
   }

@@ -1,27 +1,40 @@
-import { mount, shallowMount, createLocalVue } from '@vue/test-utils';
-import Navbar from '@/components/Navbar.vue';
-import VueRouter from 'vue-router'
-import Products from '@/views/Products.vue';
-import routes from '@/router/index.js';
+import Vuex from 'vuex'
+import { mount, createLocalVue } from "@vue/test-utils"
+import Navbar from "@/components/Navbar.vue"
 
 const localVue = createLocalVue()
-localVue.use(VueRouter)
+localVue.use(Vuex)
 
-describe('Navbar', () => {
+const store = new Vuex.Store({
+  state: {
+    products: [{ id: 1 }]
+  }
+})
 
-    test('render component via routing', async () => {
+describe("Navbar", () => {
+  test("displays number of items in array", () => {
 
-        const router = new VueRouter({ routes, mode: 'history' })
-        const wrapper = mount(Navbar, {
-            localVue,
-            router
-        })
-
-        router.push('/products')
-        await wrapper.vm.$nextTick()
-
-        expect(wrapper.findComponent(Products).exists()).toBe(true)
-
+    const wrapper = mount(Navbar, {
+      store,
+      localVue,
+      stubs: ['router-link']
     })
+    expect(parseInt(wrapper.find(".bubble").text())).toBe(1)
+  })
 
+  test("Show if router prop is set with '/' url ", () => {
+    const $route = {
+      path: '/'
+    }
+
+    const wrapper = mount(Navbar, {
+      store,
+      localVue,
+      mocks: {
+        $route
+      },
+      stubs: ['router-link']
+    })
+    expect(wrapper.vm.$route.path).toBe("/");
+  });
 })

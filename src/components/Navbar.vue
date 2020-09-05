@@ -1,14 +1,18 @@
 <template>
   <nav class="nav-bar">
-    <span class="lnr lnr-home home-icon"></span>
-    <span class="lnr lnr-cart cart-icon"></span>
+    <span
+      class="lnr lnr-home home-icon"
+      @click="$router.push({ name: 'Home' }).catch(() => {})"
+    ></span>
     <div class="nav-links">
       <router-link to="/" class="brand">WholeSale Shoes</router-link>|
       <router-link to="/products">Shop</router-link>
       <router-link to="about">About</router-link>
       <router-link to="contact">Contact</router-link>
     </div>
-    <span class="lnr lnr-cart"></span>
+    <span class="lnr lnr-cart">
+      <span class="bubble">{{$store.state.products.length}}</span>
+    </span>
     <div class="dots" @click="$store.commit('TOGGLE_SIDE_MENU')">
       <div />
       <div />
@@ -26,7 +30,7 @@ export default {};
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 2;
+  z-index: 3;
   width: 100%;
   height: 50px;
   display: flex;
@@ -50,6 +54,21 @@ export default {};
     color: #777;
     cursor: pointer;
     font-size: 1.4rem;
+    position: relative;
+    .bubble {
+      top: -10px;
+      width: 16px;
+      right: -10px;
+      height: 16px;
+      display: flex;
+      color: #fff;
+      font-size: 0.9rem;
+      position: absolute;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: #b56161;
+    }
   }
 
   .dots {
