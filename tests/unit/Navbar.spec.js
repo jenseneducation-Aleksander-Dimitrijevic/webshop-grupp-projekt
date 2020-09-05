@@ -1,14 +1,40 @@
-import Navbar from "@/components/Navbar.vue";
-import { mount, RouterLinkStub } from "@vue/test-utils";
+import Vuex from 'vuex'
+import { mount, createLocalVue } from "@vue/test-utils"
+import Navbar from "@/components/Navbar.vue"
 
-const wrapper = mount(Navbar, {
-  stubs: {
-    RouterLink: RouterLinkStub,
-  },
-});
+const localVue = createLocalVue()
+localVue.use(Vuex)
 
-describe("Products", () => {
+const store = new Vuex.Store({
+  state: {
+    products: [{ id: 1 }]
+  }
+})
+
+describe("Navbar", () => {
+  test("displays number of items in array", () => {
+
+    const wrapper = mount(Navbar, {
+      store,
+      localVue,
+      stubs: ['router-link']
+    })
+    expect(parseInt(wrapper.find(".bubble").text())).toBe(1)
+  })
+
   test("Show if router prop is set with '/' url ", () => {
-    expect(wrapper.findComponent(RouterLinkStub).props().to).toBe("/");
+    const $route = {
+      path: '/'
+    }
+
+    const wrapper = mount(Navbar, {
+      store,
+      localVue,
+      mocks: {
+        $route
+      },
+      stubs: ['router-link']
+    })
+    expect(wrapper.vm.$route.path).toBe("/");
   });
-});
+})

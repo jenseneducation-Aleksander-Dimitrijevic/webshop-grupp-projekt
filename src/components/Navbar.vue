@@ -8,7 +8,7 @@
       <router-link to="contact">Contact</router-link>
     </div>
     <span class="lnr lnr-cart">
-      <span class="bubble">{{ products.length }}</span>
+      <span class="bubble">{{$store.state.products.length}}</span>
     </span>
     <div class="dots" @click="$store.commit('TOGGLE_SIDE_MENU')">
       <div />
@@ -19,10 +19,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-export default {
-  computed: { ...mapState(["products"]) },
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>
