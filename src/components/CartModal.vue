@@ -22,7 +22,10 @@
         />
       </div>
     </article>
-    <span class="total-price">Pris: {{ displayTotalAmount }} kr</span>
+    <section class="cart-actions">
+      <span class="total-price">Pris: {{ displayTotalAmount }} kr</span>
+      <button>Checkout</button>
+    </section>
   </div>
 </template>
 
@@ -47,9 +50,9 @@ export default {
   display: none;
   position: fixed;
   border-radius: 5px;
-  padding: 2rem 1rem;
   background: #fff;
   transform: translateX(50%);
+  padding: 2rem 1rem 4rem 1rem;
   box-shadow: 0 0 6px rgba(#000, 0.3);
 
   article {
@@ -98,14 +101,27 @@ export default {
     }
   }
 
-  .total-price {
-    display: block;
-    font-size: 0.8rem;
-    text-align: center;
-  }
-
   &.toggle {
     display: block;
+  }
+
+  .cart-actions {
+    display: flex;
+    margin-top: 1rem;
+    .total-price {
+      display: block;
+      font-size: 0.8rem;
+    }
+
+    button {
+      padding: 5px;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      margin-left: auto;
+      border-radius: 3px;
+      background: #b56161;
+    }
   }
 }
 
