@@ -1,12 +1,14 @@
 <template>
   <nav class="nav-bar">
-    <span class="lnr lnr-home home-icon" @click="$router.push({ name: 'Home' }).catch(() => {})"></span>
     <div class="nav-links">
       <router-link to="/" class="brand">WholeSale Shoes</router-link>|
       <router-link to="/products">Shop</router-link>
       <router-link to="about">About</router-link>
       <router-link to="contact">Contact</router-link>
     </div>
+    <router-link to="/" class="home-btn">
+      <span class="lnr lnr-home home-icon"></span>
+    </router-link>
     <span class="lnr lnr-cart">
       <span class="bubble">{{$store.state.products.length}}</span>
     </span>
@@ -87,6 +89,10 @@ export default {};
       background: #777;
     }
   }
+}
+
+.home-btn {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 1024px) {
