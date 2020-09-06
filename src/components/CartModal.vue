@@ -24,7 +24,9 @@
     </article>
     <section class="cart-actions">
       <span class="total-price">Pris: {{ displayTotalAmount }} kr</span>
-      <button>Checkout</button>
+      <button class="checkout-btn" :disabled="!this.products.length">
+        Checkout
+      </button>
     </section>
   </div>
 </template>
@@ -121,6 +123,11 @@ export default {
       margin-left: auto;
       border-radius: 3px;
       background: #b56161;
+    }
+
+    .checkout-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
     }
   }
 }

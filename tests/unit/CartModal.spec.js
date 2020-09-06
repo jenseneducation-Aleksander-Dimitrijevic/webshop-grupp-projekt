@@ -17,19 +17,19 @@ const store = new Vuex.Store({
   },
 });
 
-describe("Navbar", () => {
+describe("Navbar.vue", () => {
   test("Should be able to make a commit to TOGGLE_CART mutation", () => {
     store.commit("TOGGLE_CART");
     expect(store.state.cartModalOpen).toEqual(true);
+  });
 
-    test("Should commit TOGGLE_CART when clicking on cart icon", async () => {
-      const wrapper = mount(Navbar, {
-        store,
-        localVue,
-        stubs: ["router-link"],
-      });
-      await wrapper.find(".cart-btn").trigger("click");
-      expect(store.state.cartModalOpen).toEqual(true);
+  test("Should commit TOGGLE_CART when clicking on cart icon", async () => {
+    const wrapper = mount(Navbar, {
+      store,
+      localVue,
+      stubs: ["router-link"],
     });
+    await wrapper.find(".cart-btn").trigger("click");
+    expect(store.state.cartModalOpen).toEqual(true);
   });
 });
