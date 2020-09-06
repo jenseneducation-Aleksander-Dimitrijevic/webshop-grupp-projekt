@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Navbar />
+    <cart-modal />
     <app-side-menu />
     <transition name="slide-fade" mode="out-in">
       <router-view />
@@ -10,11 +11,13 @@
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import CartModal from "@/components/CartModal.vue";
 import AppSideMenu from "@/components/AppSideMenu.vue";
 export default {
   components: {
     Navbar,
     AppSideMenu,
+    CartModal,
   },
 };
 </script>

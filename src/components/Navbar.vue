@@ -10,8 +10,8 @@
       <router-link to="about">About</router-link>
       <router-link to="contact">Contact</router-link>
     </div>
-    <span class="lnr lnr-cart">
-      <span class="bubble">{{$store.state.products.length}}</span>
+    <span class="lnr lnr-cart cart-btn" @click="toggleCartModal">
+      <span class="bubble">{{ $store.getters.getAllProducts }}</span>
     </span>
     <div class="dots" @click="$store.commit('TOGGLE_SIDE_MENU')">
       <div />
@@ -22,7 +22,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toggleCartModal() {
+      this.$store.commit("TOGGLE_CART");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
