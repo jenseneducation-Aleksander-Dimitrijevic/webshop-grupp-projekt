@@ -12,7 +12,7 @@ const store = new Vuex.Store({
 })
 
 describe("Navbar", () => {
-  test("displays number of items in array", () => {
+  test("display number of items in cart", () => {
 
     const wrapper = mount(Navbar, {
       store,

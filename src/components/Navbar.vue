@@ -1,9 +1,6 @@
 <template>
   <nav class="nav-bar">
-    <span
-      class="lnr lnr-home home-icon"
-      @click="$router.push({ name: 'Home' }).catch(() => {})"
-    ></span>
+    <span class="lnr lnr-home home-icon" @click="$router.push({ name: 'Home' }).catch(() => {})"></span>
     <div class="nav-links">
       <router-link to="/" class="brand">WholeSale Shoes</router-link>|
       <router-link to="/products">Shop</router-link>
@@ -32,9 +29,9 @@ export default {};
   bottom: 0;
   z-index: 3;
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: flex;
-  padding: 0 2rem;
+  padding: 0 3rem;
   position: fixed;
   background: #ddd;
   align-items: center;
@@ -47,6 +44,12 @@ export default {};
     a {
       color: #999;
       text-decoration: none;
+
+      &:hover {
+        color: #833c3c;
+        opacity: 0.3;
+        transition: 0.3s;
+      }
     }
   }
 
@@ -74,6 +77,7 @@ export default {};
   .dots {
     display: flex;
     cursor: pointer;
+    padding: 10px;
 
     div {
       width: 6px;
