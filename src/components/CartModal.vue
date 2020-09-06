@@ -111,7 +111,7 @@ export default {
 
 @media screen and (min-width: 1024px) {
   .cart-modal-container {
-    top: 60px;
+    top: 70px;
     right: 40px;
     height: 50%;
     width: 300px;

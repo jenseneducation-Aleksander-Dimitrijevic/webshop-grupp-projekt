@@ -1,15 +1,14 @@
 <template>
   <nav class="nav-bar">
-    <span
-      class="lnr lnr-home home-icon"
-      @click="$router.push({ name: 'Home' }).catch(() => {})"
-    ></span>
     <div class="nav-links">
       <router-link to="/" class="brand">WholeSale Shoes</router-link>|
       <router-link to="/products">Shop</router-link>
       <router-link to="about">About</router-link>
       <router-link to="contact">Contact</router-link>
     </div>
+    <router-link class="home-btn" to="/">
+      <span class="lnr lnr-home home-icon"></span>
+    </router-link>
     <span class="lnr lnr-cart cart-btn" @click="toggleCartModal">
       <span class="bubble">{{ $store.getters.getAllProducts }}</span>
     </span>
@@ -38,9 +37,9 @@ export default {
   bottom: 0;
   z-index: 3;
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: flex;
-  padding: 0 2rem;
+  padding: 0 3rem;
   position: fixed;
   background: #ddd;
   align-items: center;
@@ -53,6 +52,12 @@ export default {
     a {
       color: #999;
       text-decoration: none;
+
+      &:hover {
+        color: #833c3c;
+        opacity: 0.3;
+        transition: 0.3s;
+      }
     }
   }
 
@@ -80,6 +85,7 @@ export default {
   .dots {
     display: flex;
     cursor: pointer;
+    padding: 10px;
 
     div {
       width: 6px;
@@ -89,6 +95,10 @@ export default {
       background: #777;
     }
   }
+}
+
+.home-btn {
+  text-decoration: none;
 }
 
 @media screen and (min-width: 1024px) {
