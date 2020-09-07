@@ -39,7 +39,7 @@ export default {
   z-index: 4;
   width: 95%;
   height: 50%;
-  bottom: 60px;
+  bottom: 70px;
   display: none;
   position: fixed;
   border-radius: 5px;
