@@ -60,19 +60,4 @@ describe("Header.vue", () => {
     });
     expect(wrapper.findComponent(RouterLinkStub).props().to).toBe("/products");
   });
-  // it("Should redirect you to desired page, when clicking on a link", () => {
-  //   const $route = {
-  //     path: "/products",
-  //   };
-
-  //   const wrapper = shallowMount(Header, {
-  //     mocks: {
-  //       $route,
-  //     },
-
-  //     stubs: ["router-link"],
-  //   });
-
-  //   expect(wrapper.vm.$route.path).toBe("/products");
-  // });
 });
