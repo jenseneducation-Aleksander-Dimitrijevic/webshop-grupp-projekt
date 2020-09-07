@@ -1,10 +1,19 @@
 <template>
-  <div>
+  <div class="container">
     <header class="about-text">
       <h1>MEET OUR TEAM</h1>
       <p>
-        We are all very different. We were born in different cities, at different times, we love different music, food, movies. But we have something that unites us all. It is our company. We are its heart. We are not just a team, we are a family.
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic repellendus corrupti nobis laudantium possimus, sapiente assumenda quisquam sit, itaque facere delectus doloribus quo, expedita optio doloremque nesciunt. Aperiam ipsa fuga facere aut nulla. Similique accusamus laborum ad vel praesentium impedit neque quo. Et adipisci delectus assumenda, tempora repudiandae ea eum voluptas consequuntur modi incidunt in nisi explicabo omnis quos laborum!
+        We are all very different. We were born in different cities, at
+        different times, we love different music, food, movies. But we have
+        something that unites us all. It is our company. We are its heart. We
+        are not just a team, we are a family. Lorem ipsum dolor sit amet
+        consectetur, adipisicing elit. Hic repellendus corrupti nobis laudantium
+        possimus, sapiente assumenda quisquam sit, itaque facere delectus
+        doloribus quo, expedita optio doloremque nesciunt. Aperiam ipsa fuga
+        facere aut nulla. Similique accusamus laborum ad vel praesentium impedit
+        neque quo. Et adipisci delectus assumenda, tempora repudiandae ea eum
+        voluptas consequuntur modi incidunt in nisi explicabo omnis quos
+        laborum!
       </p>
       <router-link to="/contact" class="contact-btn">CONTACT US</router-link>
     </header>
@@ -16,10 +25,14 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
 .about-text {
-  display: grid;
   padding: 0 1rem;
-  margin: 60px 0;
+  margin: auto;
   text-align: center;
 
   .contact-btn {
