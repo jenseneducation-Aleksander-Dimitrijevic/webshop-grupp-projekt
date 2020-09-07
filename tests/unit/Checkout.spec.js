@@ -10,7 +10,7 @@ describe('Checkout', ()=>{
 
 
 
-	test('should take user back to previous page', () => {
+	test('should ', () => {
 		
 	});
 })
