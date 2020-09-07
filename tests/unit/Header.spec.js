@@ -1,17 +1,18 @@
 import { shallowMount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
 import Header from "@/components/Header.vue";
-import Products from "@/views/Products.vue";
 import VueRouter from "vue-router";
 
 describe("Header.vue", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallowMount(Header);
+    wrapper = shallowMount(Header, {
+      stubs: ["router-link"],
+    });
   });
 
   it("should show h2", () => {
     const acualText = "Buy a shoe!";
-    const content = wrapper.find("router-link").text();
+    const content = wrapper.find("#a").text();
     expect(content).toBe(acualText);
   });
   it("should show h4", () => {
@@ -20,8 +21,6 @@ describe("Header.vue", () => {
 
     expect(content).toBe(acualText);
   });
-});
-describe("Products", () => {
   it("Should redirect you to desired page, when clicking on a link", () => {
     const $route = {
       path: "/products",
@@ -31,6 +30,8 @@ describe("Products", () => {
       mocks: {
         $route,
       },
+
+      stubs: ["router-link"],
     });
 
     expect(wrapper.vm.$route.path).toBe("/products");
@@ -58,5 +59,20 @@ describe("Products", () => {
       button: 1,
     });
     expect(wrapper.findComponent(RouterLinkStub).props().to).toBe("/products");
+  });
+  it("Should redirect you to desired page, when clicking on a link", () => {
+    const $route = {
+      path: "/products",
+    };
+
+    const wrapper = shallowMount(Header, {
+      mocks: {
+        $route,
+      },
+
+      stubs: ["router-link"],
+    });
+
+    expect(wrapper.vm.$route.path).toBe("/products");
   });
 });
