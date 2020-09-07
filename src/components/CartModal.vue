@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="cart-modal-container"
-    :class="{ toggle: cartModalOpen }"
-    v-if="products"
-  >
+  <div class="cart-modal-container" :class="{ toggle: cartModalOpen }" v-if="products">
     <h1 class="heading">Din beställning</h1>
     <article>
       <div class="cart-item" v-for="product in products" :key="product.id">
@@ -11,22 +7,17 @@
           <h2>{{ product.name }}</h2>
           <span class="price">{{ product.count * product.price }} kr</span>
           <section class="toggle-amount">
-            <button class="decrement" @click="product.count--">-</button>
+            <button class="decrement" @click="product.count > 0 && product.count--">-</button>
             <span class="counter">{{ product.count }}</span>
             <button class="increment" @click="product.count++">+</button>
           </section>
         </section>
-        <img
-          :src="require('@/assets/' + product.img + '.png')"
-          alt="cart item image"
-        />
+        <img :src="require('@/assets/' + product.img + '.png')" alt="cart item image" />
       </div>
     </article>
     <section class="cart-actions">
       <span class="total-price">Pris: {{ displayTotalAmount }} kr</span>
-      <button class="checkout-btn" :disabled="!this.products.length">
-        Checkout
-      </button>
+      <button class="checkout-btn" :disabled="!this.products.length">Checkout</button>
     </section>
   </div>
 </template>
@@ -45,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .cart-modal-container {
   right: 50%;
-  z-index: 1;
+  z-index: 4;
   width: 95%;
   height: 50%;
   bottom: 60px;
@@ -134,11 +125,11 @@ export default {
 
 @media screen and (min-width: 1024px) {
   .cart-modal-container {
-    top: 70px;
+    top: 50px;
     right: 40px;
-    height: 50%;
+    height: 70%;
     width: 300px;
-    border-radius: 40px 0 40px 40px;
+    border-radius: 10px 0 10px 10px;
     transform: translateX(0);
   }
 }
