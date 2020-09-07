@@ -4,7 +4,7 @@
     :class="{ toggle: cartModalOpen }"
     v-if="products"
   >
-    <h1>Din beställning</h1>
+    <h1 class="heading">Din beställning</h1>
     <article>
       <div class="cart-item" v-for="product in products" :key="product.id">
         <section class="item-details">
