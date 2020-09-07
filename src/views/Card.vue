@@ -13,7 +13,9 @@
       </section>
       <section class="content-right">
         <p class="info">{{ product.description }}</p>
-        <button class="cart" id="button" @click="addToCart(product)">Add to basket</button>
+        <button class="cart" id="button" @click="addToCart(product)">
+          Add to basket
+        </button>
       </section>
     </div>
   </div>
@@ -30,6 +32,11 @@ export default {
   methods: {
     addToCart(product) {
       this.$store.commit("ADD_TO_CART", product);
+      const cartOpen = this.$store.state.cartModalOpen;
+      if (!cartOpen) {
+        this.$store.commit("TOGGLE_CART");
+      }
+      return;
     },
   },
 };

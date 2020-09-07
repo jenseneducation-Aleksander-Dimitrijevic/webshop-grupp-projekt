@@ -29,9 +29,17 @@
     </article>
     <section class="cart-actions">
       <span class="total-price">Pris: {{ displayTotalAmount }} kr</span>
-      <button class="checkout-btn" :disabled="!this.products.length">
-        Checkout
-      </button>
+      <div class="button-container">
+        <button
+          class="action-btn"
+          :disabled="!products.length || displayTotalAmount == 0"
+        >
+          Checkout
+        </button>
+        <button @click="reset" class="action-btn" v-show="products.length > 0">
+          Rensa
+        </button>
+      </div>
     </section>
   </div>
 </template>
@@ -43,8 +51,15 @@ export default {
   computed: {
     ...mapState(["cartModalOpen", "products"]),
     ...mapGetters(["displayTotalAmount"]),
-    isCounterZero() {
-      return this.products.forEach((product) => product.count < 1);
+  },
+  methods: {
+    reset() {
+      if (confirm("Är du säker på att du vill rensa kundkorgen?")) {
+        this.$router.push({ name: "Home" });
+        location.reload();
+      } else {
+        return;
+      }
     },
   },
 };
@@ -123,19 +138,24 @@ export default {
       font-size: 0.8rem;
     }
 
+    .button-container {
+      margin-left: auto;
+    }
+
     button {
       padding: 5px;
       border: none;
       color: #fff;
       cursor: pointer;
-      margin-left: auto;
       border-radius: 3px;
+      margin-left: 0.5rem;
       background: #b56161;
     }
 
-    .checkout-btn:disabled {
+    .action-btn:disabled {
       background: #ccc;
       cursor: not-allowed;
+      margin-left: auto;
     }
   }
 }

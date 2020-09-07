@@ -10,7 +10,7 @@
       <span class="lnr lnr-home home-icon"></span>
     </router-link>
     <span class="lnr lnr-cart cart-btn" @click="toggleCartModal">
-      <span class="bubble">{{ $store.getters.getAllProducts || 0 }}</span>
+      <span class="bubble">{{ $store.getters.getAllProducts }}</span>
     </span>
     <div class="dots" @click="$store.commit('TOGGLE_SIDE_MENU')">
       <div />

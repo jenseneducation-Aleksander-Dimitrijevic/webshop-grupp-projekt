@@ -23,7 +23,7 @@ describe("Navbar", () => {
       localVue,
       stubs: ["router-link"],
     });
-    expect(parseInt(wrapper.find(".bubble").text())).toBe(0);
+    expect(Number(wrapper.find(".bubble").text())).toBe(0);
   });
 
   test("Show if router prop is set with '/' url ", () => {

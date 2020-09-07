@@ -1,13 +1,23 @@
 <template>
-  <ul class="side-menu" :class="{toggle: isOpen}">
+  <ul class="side-menu" :class="{ toggle: isOpen }">
     <li>
-      <router-link to="/products" @click.native="$store.commit('TOGGLE_SIDE_MENU')">Shop</router-link>
+      <router-link
+        to="/products"
+        @click.native="$store.commit('TOGGLE_SIDE_MENU')"
+        >Shop</router-link
+      >
     </li>
     <li>
-      <router-link to="about" @click.native="$store.commit('TOGGLE_SIDE_MENU')">About</router-link>
+      <router-link to="about" @click.native="$store.commit('TOGGLE_SIDE_MENU')"
+        >About</router-link
+      >
     </li>
     <li>
-      <router-link to="contact" @click.native="$store.commit('TOGGLE_SIDE_MENU')">Contact</router-link>
+      <router-link
+        to="contact"
+        @click.native="$store.commit('TOGGLE_SIDE_MENU')"
+        >Contact</router-link
+      >
     </li>
   </ul>
 </template>
@@ -28,6 +38,7 @@ export default {
   padding: 1rem;
   height: 200px;
   position: fixed;
+  display: flex;
   list-style: none;
   transition: 0.3s;
   flex-flow: column;
@@ -45,7 +56,6 @@ export default {
   }
 
   &.toggle {
-    display: flex;
     transform: translateY(0);
   }
 }
