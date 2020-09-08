@@ -104,11 +104,12 @@ export default {
 
     .product-list {
       gap: 8rem 4rem;
+      grid-template-columns: repeat(3, 1fr);
 
       .list-item {
         .product-image {
           width: 100%;
-          height: 400px;
+          height: 300px;
         }
 
         .product-detail {

@@ -1,7 +1,25 @@
 <template>
-  <div class="side-menu" :class="{toggle: isOpen}">
-    <router-link to="/products" @click.native="$store.commit('TOGGLE_SIDE_MENU')">Shop</router-link>
-  </div>
+  <ul class="side-menu" :class="{ toggle: isOpen }">
+    <li>
+      <router-link
+        to="/products"
+        @click.native="$store.commit('TOGGLE_SIDE_MENU')"
+        >Shop</router-link
+      >
+    </li>
+    <li>
+      <router-link to="about" @click.native="$store.commit('TOGGLE_SIDE_MENU')"
+        >About</router-link
+      >
+    </li>
+    <li>
+      <router-link
+        to="contact"
+        @click.native="$store.commit('TOGGLE_SIDE_MENU')"
+        >Contact</router-link
+      >
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -14,24 +32,37 @@ export default {
 <style lang="scss" scoped>
 .side-menu {
   right: 0;
-  bottom: 0;
   z-index: 2;
   width: 100%;
+  bottom: 60px;
+  padding: 1rem;
   height: 200px;
   position: fixed;
+  display: flex;
+  list-style: none;
   transition: 0.3s;
-  padding: 2rem 1rem;
+  flex-flow: column;
   text-align: center;
   background: #333;
+  align-items: center;
   transform: translateY(100%);
+  justify-content: space-around;
+
   a {
     color: #fff;
+    display: block;
     font-size: 1.5rem;
     text-decoration: none;
   }
 
   &.toggle {
     transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .side-menu {
+    display: none;
   }
 }
 </style>

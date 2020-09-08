@@ -17,6 +17,7 @@ describe("Products", () => {
             mocks: {
                 $route,
             },
+            stubs: ['router-link']
         });
 
         expect(wrapper.vm.$route.path).toBe("/products");
@@ -28,8 +29,10 @@ describe("Products", () => {
                 mocks: {
                     $store: {
                         state: { isOpen: true }
-                    }
-                }
+                    },
+                },
+                stubs: ['router-link']
+
             })
 
             expect(wrapper.find(".side-menu").exists()).toBe(true)

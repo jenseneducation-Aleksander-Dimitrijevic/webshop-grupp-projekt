@@ -7,7 +7,9 @@ jest.mock("axios", () => ({
 describe("Products.vue", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallowMount(Products);
+    wrapper = shallowMount(Products, {
+      stubs: ["router-link"],
+    });
   });
 
   test("return one product name to be Vans Black", async () => {
