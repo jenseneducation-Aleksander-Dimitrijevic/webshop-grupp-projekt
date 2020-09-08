@@ -8,14 +8,12 @@
         </h1>
         <img :src="require('../assets/' + product.img + '.png')" alt="shoe" />
         <p class="price">
-          <span>{{ product.price }} kr</span>
+          <span>${{ product.price }}</span>
         </p>
       </section>
       <section class="content-right">
         <p class="info">{{ product.description }}</p>
-        <button class="cart" id="button" @click="addToCart(product)">
-          Add to basket
-        </button>
+        <button class="cart" id="button" @click="addToCart(product)">Add to basket</button>
       </section>
     </div>
   </div>
@@ -32,6 +30,7 @@ export default {
   methods: {
     addToCart(product) {
       this.$store.commit("ADD_TO_CART", product);
+      this.$router.push({ name: "products" });
       const cartOpen = this.$store.state.cartModalOpen;
       if (!cartOpen) {
         this.$store.commit("TOGGLE_CART");

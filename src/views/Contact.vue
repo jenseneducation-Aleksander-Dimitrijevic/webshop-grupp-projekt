@@ -3,9 +3,17 @@
     <h1>Contact</h1>
     <div class="content">
       <div class="info">
-        <h3>Get in Toutch!</h3>
+        <h3>Get in Touch!</h3>
         <a href="mailto: abc@example.com">Info@wholesaleshoes.com</a>
-        <img src="@/assets/jensenyh.png" class="image1" alt />
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16246.511954746045!2d17.925393505274496!3d59.40281572780534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9e8955005cc9%3A0xffbb795f2bd6d2cf!2sKista%2C%20Stockholm!5e0!3m2!1sen!2sse!4v1599552318464!5m2!1sen!2sse"
+          id="maps"
+          frameborder="0"
+          style="border:0;"
+          allowfullscreen
+          aria-hidden="false"
+          tabindex="0"
+        ></iframe>
       </div>
     </div>
   </div>
@@ -17,8 +25,6 @@ export default {};
 
 <style lang="scss" scoped>
 .wrapper {
-  display: flex;
-  flex-direction: column;
   padding: 1rem;
   max-width: 375;
   margin: auto;
@@ -39,10 +45,11 @@ a {
     color: grey;
   }
 }
-img {
+#maps {
+  width: 100%;
   margin: 2rem auto;
-  width: 350px;
-  height: 200px;
+  height: 400px;
+  display: block;
 }
 @media screen and (min-width: 768px) {
   .wrapper {

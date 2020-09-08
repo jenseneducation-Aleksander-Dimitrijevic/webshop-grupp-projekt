@@ -13,8 +13,8 @@ describe("Contact.vue", () => {
     expect(content).toBe(acualText);
   });
 
-  it("show that the specific image exists", () => {
-    const img = wrapper.findAll(".image1");
+  it("show that the specific iframe exists", () => {
+    const img = wrapper.findAll("#maps");
     expect(img.length).toBe(1);
   });
 });

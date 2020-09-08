@@ -6,7 +6,7 @@
     <h1>
       Shop
       <br />
-      <span>{{ this.products.length }} skor i lagret</span>
+      <span>{{ this.products.length }} shoes in store</span>
     </h1>
     <ul class="product-list">
       <li class="list-item" v-for="product in products" :key="product.id">
@@ -20,7 +20,7 @@
         />
         <p class="product-detail">
           <span>{{ product.name }}</span>
-          <span class="price">{{ product.price }} kr</span>
+          <span class="price">${{ product.price }}</span>
         </p>
       </li>
     </ul>

@@ -6,7 +6,7 @@
       "img": "vans1",
       "count": 0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "price": "799"
+      "price": "79"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "count": 0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "name": "Vans Chess",
-      "price": "899"
+      "price": "89"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "count": 0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "name": "Vans Blue",
-      "price": "999"
+      "price": "99"
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "count": 0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "name": "Vans Pink",
-      "price": "799"
+      "price": "79"
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "count": 0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "name": "Vans Pink White",
-      "price": "399"
+      "price": "39"
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "count": 0,
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "name": "Vans Guyfieri",
-      "price": "1299"
+      "price": "129"
     }
   ]
 }

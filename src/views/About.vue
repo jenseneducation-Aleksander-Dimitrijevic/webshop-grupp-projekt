@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <header class="about-text">
-      <h1>MEET OUR TEAM</h1>
+      <h1>About us</h1>
+      <h2>MEET OUR TEAM</h2>
       <p>
         We are all very different. We were born in different cities, at
         different times, we love different music, food, movies. But we have
