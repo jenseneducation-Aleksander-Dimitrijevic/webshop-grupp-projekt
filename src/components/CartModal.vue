@@ -114,6 +114,7 @@ export default {
   .cart-actions {
     display: flex;
     margin-top: 1rem;
+    align-items: center;
     .total-price {
       display: block;
       font-size: 0.8rem;
