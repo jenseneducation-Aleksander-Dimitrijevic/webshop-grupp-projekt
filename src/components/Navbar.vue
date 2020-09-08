@@ -3,8 +3,8 @@
     <div class="nav-links">
       <router-link to="/" class="brand">WholeSale Shoes</router-link>|
       <router-link to="/products">Shop</router-link>
-      <router-link to="about">About</router-link>
-      <router-link to="contact">Contact</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/contact">Contact</router-link>
     </div>
     <router-link class="home-btn" to="/">
       <span class="lnr lnr-home home-icon"></span>
