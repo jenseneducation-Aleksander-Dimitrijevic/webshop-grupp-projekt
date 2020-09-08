@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="orders">
+  <div class="container">
     <div class="content">
       <h1>Checkout</h1>
       <div class="itemarea">
@@ -8,8 +8,11 @@
             <h1>{{ order.name }}</h1>
             <p>${{ order.price }}</p>
           </section>
-          <section :style="{textAlign: 'center'}">
-            <img :src="require('../assets/'+order.img+'.png')" alt="product image" />
+          <section :style="{ textAlign: 'center' }">
+            <img
+              :src="require('../assets/' + order.img + '.png')"
+              alt="product image"
+            />
             <p>X {{ order.count }}</p>
           </section>
         </div>
@@ -23,7 +26,12 @@
           </p>
           <p class="changeAdress" @click="handleChangeAddress">Change adress</p>
         </div>
-        <input type="radio" v-model="isClicked" id="set-adress-btn" :value="true" />
+        <input
+          type="radio"
+          v-model="isClicked"
+          id="set-adress-btn"
+          :value="true"
+        />
       </div>
 
       <button
@@ -32,7 +40,9 @@
         @click="handleProceed"
         :class="{ complete: proceed, setLoading: isLoading }"
       >
-        <span v-if="!isLoading">{{ proceed ? "Your order is on the way!" : "Proceed" }}</span>
+        <span v-if="!isLoading">{{
+          proceed ? "Your order is on the way!" : "Proceed"
+        }}</span>
         <div class="loader" v-else></div>
       </button>
     </div>
@@ -64,7 +74,7 @@ export default {
         this.isLoading = false;
         setTimeout(() => {
           location.reload();
-        }, 500);
+        }, 1500);
       }, 2000);
     },
   },
@@ -84,7 +94,7 @@ export default {
     display: flex;
     background: #eee;
     flex-direction: column;
-    padding: 2rem 2rem 80px 2rem;
+    padding: 2rem 1rem 80px 1rem;
     justify-content: space-between;
 
     .itemarea {

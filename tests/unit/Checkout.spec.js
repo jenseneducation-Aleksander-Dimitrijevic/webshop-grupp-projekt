@@ -1,8 +1,11 @@
 import { shallowMount } from "@vue/test-utils";
 import Checkout from "@/views/Checkout.vue";
 
+window.alert = jest.fn();
+
 describe("Checkout", () => {
   let wrapper;
+  window.alert.mockClear();
 
   beforeEach(() => {
     wrapper = shallowMount(Checkout);
