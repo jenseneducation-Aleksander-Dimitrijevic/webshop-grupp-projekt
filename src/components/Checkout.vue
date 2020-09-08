@@ -5,7 +5,7 @@
 			<div class="itemarea"></div>
 
 			<div class="shipping">
-				<input type="radio" v-model="isClicked" id="set-adress-btn">
+				<input type="radio" v-model="isClicked" id="set-adress-btn" :value="true">
 				<!-- @click="alert('Changed Adress!')" -->
 				<p class="changeAdress" ></p> -->
 			</div>

@@ -22,6 +22,14 @@ describe('Checkout', ()=>{
 		expect(radio.element.checked).toBeTruthy()
 	})
 
+	test('should set data property value from FALSE to TRUE when click on radio button', async () => {
+		const radio = wrapper.find('#set-adress-btn')
+		console.log(wrapper.vm.isClicked)
+		radio.setChecked()
+		console.log(wrapper.vm.isClicked)
+		expect(wrapper.vm.isClicked).toBe(true)
+	})
+
 
 	// test('should show an alert when user tries to change adress', () => {
 		
