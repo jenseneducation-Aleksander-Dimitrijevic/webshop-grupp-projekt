@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import store from "@/store/";
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,13 @@ const routes = [
     name: "Contact",
     component: () => import("@/views/Contact.vue"),
   },
+  {
+    path: "/checkout",
+    name: "checkout",
+    props: true,
+    component: () => import("@/views/Checkout.vue"),
+    meta: { requiresAuth: true },
+  },
 ];
 
 const router = new VueRouter({
@@ -43,6 +51,17 @@ const router = new VueRouter({
       y: 0,
     };
   },
+});
+
+router.beforeEach((to, from, next) => {
+  const orders = store.state.products;
+  if (
+    to.matched.some((route) => route.meta.requiresAuth) &&
+    orders.length < 1
+  ) {
+    next("/");
+  }
+  next();
 });
 
 export default router;
