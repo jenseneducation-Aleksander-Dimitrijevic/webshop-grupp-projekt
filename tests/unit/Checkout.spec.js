@@ -7,11 +7,10 @@ describe('Checkout', ()=>{
 	beforeEach(()=>{
 		wrapper = shallowMount(Checkout)
 	})
-		// RADIO TESTS
-	test('should check if property "isClicked" exist', () => {
-		expect(wrapper.vm.data).toEqual(true)
-	})
 
+	
+		// RADIO TESTS
+	
 	test('should check if radio input exist', () => {
 		expect(wrapper.find('#set-adress-btn').exists()).toBe(true)
 	})
@@ -61,3 +60,4 @@ describe('Checkout', ()=>{
 	})
 
 })
+	
