@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="cart-modal-container"
-    :class="{ toggle: cartModalOpen }"
-    v-if="products"
-  >
+  <div class="cart-modal-container" :class="{ toggle: cartModalOpen }" v-if="products">
     <h1 class="heading">Din beställning</h1>
     <article>
       <div class="cart-item" v-for="product in products" :key="product.id">
@@ -11,20 +7,12 @@
           <h2>{{ product.name }}</h2>
           <span class="price">${{ product.count * product.price }}</span>
           <section class="toggle-amount">
-            <button
-              class="decrement"
-              @click="product.count > 0 && product.count--"
-            >
-              -
-            </button>
+            <button class="decrement" @click="product.count > 0 && product.count--">-</button>
             <span class="counter">{{ product.count }}</span>
             <button class="increment" @click="product.count++">+</button>
           </section>
         </section>
-        <img
-          :src="require('@/assets/' + product.img + '.png')"
-          alt="cart item image"
-        />
+        <img :src="require('@/assets/' + product.img + '.png')" alt="cart item image" />
       </div>
     </article>
     <section class="cart-actions">
@@ -34,12 +22,8 @@
           class="action-btn"
           :disabled="!products.length || displayTotalAmount == 0"
           @click="handleCheckOut"
-        >
-          Checkout
-        </button>
-        <button @click="reset" class="action-btn" v-show="products.length > 0">
-          Rensa
-        </button>
+        >Checkout</button>
+        <button @click="reset" class="action-btn" v-show="products.length > 0">Rensa</button>
       </div>
     </section>
   </div>
@@ -64,7 +48,7 @@ export default {
     },
 
     handleCheckOut() {
-      const orders = this.products.filter((product) => product.count !== 0);
+      const orders = this.products.filter((product) => product.count > 0);
       this.$store.commit("TOGGLE_CART");
       this.$router.push({ name: "checkout", params: { orders } });
     },

@@ -1,25 +1,29 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="orders">
     <div class="content">
       <h1>Checkout</h1>
-      <div class="itemarea"></div>
+      <div class="itemarea">
+        <div class="item" v-for="order in orders" :key="order.id">
+          <section>
+            <h1>{{ order.name }}</h1>
+            <p>${{ order.price }}</p>
+          </section>
+          <section :style="{textAlign: 'center'}">
+            <img :src="require('../assets/'+order.img+'.png')" alt="product image" />
+            <p>X {{ order.count }}</p>
+          </section>
+        </div>
+      </div>
       <div class="shipping">
         <div class="adress-box">
           <h2>Shipping address</h2>
           <p class="location">
-            Radhusvägen 111<br />
-            1234 Postorten
+            Radhusvägen 111
+            <br />1234 Postorten
           </p>
-          <p class="changeAdress" @click="handleChangeAddress">
-            Change adress
-          </p>
+          <p class="changeAdress" @click="handleChangeAddress">Change adress</p>
         </div>
-        <input
-          type="radio"
-          v-model="isClicked"
-          id="set-adress-btn"
-          :value="true"
-        />
+        <input type="radio" v-model="isClicked" id="set-adress-btn" :value="true" />
       </div>
 
       <button
@@ -28,9 +32,7 @@
         @click="handleProceed"
         :class="{ complete: proceed, setLoading: isLoading }"
       >
-        <span v-if="!isLoading">
-          {{ proceed ? "Your order is on the way!" : "Proceed" }}
-        </span>
+        <span v-if="!isLoading">{{ proceed ? "Your order is on the way!" : "Proceed" }}</span>
         <div class="loader" v-else></div>
       </button>
     </div>
@@ -47,6 +49,8 @@ export default {
       msg: "You have successfully changed adress!",
     };
   },
+
+  props: ["orders"],
 
   methods: {
     handleChangeAddress() {
@@ -82,6 +86,23 @@ export default {
     flex-direction: column;
     padding: 2rem 2rem 80px 2rem;
     justify-content: space-between;
+
+    .itemarea {
+      .item {
+        width: 100%;
+        display: flex;
+        padding: 10px;
+        margin: 1rem 0;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 0 5px rgba(#000, 0.1);
+        img {
+          width: 100px;
+          display: block;
+        }
+      }
+    }
 
     .shipping {
       display: flex;
