@@ -7,9 +7,9 @@ describe('Checkout', ()=>{
 	beforeEach(()=>{
 		wrapper = shallowMount(Checkout)
 	})
-
-	test('should return if property isClicked exist', () => {
-		expect(wrapper.vm.isClicked).toBe(true)
+		// RADIO TESTS
+	test('should check if property "isClicked" exist', () => {
+		expect(data.exists()).toBe(true)
 	})
 
 	test('should check if radio input exist', () => {
@@ -31,16 +31,19 @@ describe('Checkout', ()=>{
 	})
 
 
-	// test('should show an alert when user tries to change adress', () => {
-		
-	// });
+	// ADRESS TESTS
 
-// 	test('should disable the "proceed" to payment button if radio for current adress not selected', () => {
-		
-// 	});
+	test('Should return if <p> tag exist and when clicked, display message "You have successfully changed adress!"', async () => {
+		expect(wrapper.find('.changeAdress').exists()).toBe(true)
+		await wrapper.find('.changeAdress').trigger('click')
+		console.log(wrapper.vm.msg)
+		expect(wrapper.vm.msg).toBe('You have successfully changed adress!')
+	});
 
-// 	test('should display an alert when pressing on "proceed" to payment button', () => {
-		
-// 	});
-// 
+	// Proceed button
+
+	test('should check if proceed button exist', () => {
+		expect(wrapper.find('.proceed').exists()).toBe(true)
+	})
+
 })

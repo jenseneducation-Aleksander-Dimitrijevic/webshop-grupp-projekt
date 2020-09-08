@@ -1,13 +1,12 @@
    <template>
 	<div>
 
-			
+			{{msg}}
 			<div class="itemarea"></div>
 
 			<div class="shipping">
 				<input type="radio" v-model="isClicked" id="set-adress-btn" :value="true">
-				<!-- @click="alert('Changed Adress!')" -->
-				<p class="changeAdress" ></p> -->
+				<p class="changeAdress" @click="msg = 'You have successfully changed adress!'"></p> 
 			</div>
 
 			<div class="payment">
@@ -22,7 +21,8 @@
 export default {
 	data() {
 		return {
-			isClicked: false
+			isClicked: false,
+			msg: null
 		}
 	},
 }
