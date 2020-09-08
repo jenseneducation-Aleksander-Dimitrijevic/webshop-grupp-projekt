@@ -9,7 +9,7 @@ describe('Checkout', ()=>{
 	})
 		// RADIO TESTS
 	test('should check if property "isClicked" exist', () => {
-		expect(data.exists()).toBe(true)
+		expect(wrapper.vm.data).toEqual(true)
 	})
 
 	test('should check if radio input exist', () => {
@@ -44,6 +44,20 @@ describe('Checkout', ()=>{
 
 	test('should check if proceed button exist', () => {
 		expect(wrapper.find('.proceed').exists()).toBe(true)
+	})
+
+	test('Should check if "proceed" button is disabled by default', async () => {
+		const proccedButton = wrapper.find('.proceed')
+		expect(proccedButton.element.hasAttribute('disabled')).toBe(true)
+
+		console.log(proccedButton.element.hasAttribute('disabled'))
+
+		const radio = wrapper.find('#set-adress-btn')
+		await radio.setChecked()
+
+		console.log(proccedButton.element.hasAttribute('disabled'))
+
+		expect(proccedButton.element.hasAttribute('disabled')).toBe(false)
 	})
 
 })

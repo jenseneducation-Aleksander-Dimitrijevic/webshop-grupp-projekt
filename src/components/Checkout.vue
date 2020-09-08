@@ -10,7 +10,7 @@
 			</div>
 
 			<div class="payment">
-				<button class="proceed">proceed</button>
+				<button class="proceed" :disabled="!isClicked">proceed</button>
 			</div>
 	</div>
 </template>
