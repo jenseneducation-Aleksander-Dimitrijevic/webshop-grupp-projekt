@@ -1,0 +1,15 @@
+Personer som har deltagit i denna grupp projekt:
+
+* Elam Nabi (Fwk19s)
+* Aleksander Dimitrijevic (Fwk19s)
+* Max Aakre (Fwk19s)
+* Patrick Carragher (Fwk19s)
+
+
+GITHUB: https://github.com/jenseneducation-Aleksander-Dimitrijevic/webshop-grupp-projekt
+TRELLO: https://trello.com/b/9tOTYwEO/webbshop
+KRAVSPEC: https://docs.google.com/document/d/1reQqsBqltEFpkPTK0-y8jc5JKH9MIMcQ3MTfNFusDQw/edit
+
+
+Retrospective:
+
