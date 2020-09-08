@@ -6,7 +6,7 @@
         <div class="item" v-for="order in orders" :key="order.id">
           <section>
             <h1>{{ order.name }}</h1>
-            <p>${{ order.price }}</p>
+            <p>${{ order.price * order.count }}</p>
           </section>
           <section :style="{ textAlign: 'center' }">
             <img
@@ -33,6 +33,9 @@
           :value="true"
         />
       </div>
+      <div class="total">
+        <span>Total: ${{ displayTotalAmount }}</span>
+      </div>
 
       <button
         class="proceed"
@@ -50,6 +53,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -78,6 +82,8 @@ export default {
       }, 2000);
     },
   },
+
+  computed: { ...mapGetters(["displayTotalAmount"]) },
 };
 </script>
 
