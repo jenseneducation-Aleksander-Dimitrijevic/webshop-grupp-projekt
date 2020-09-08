@@ -30,6 +30,7 @@ export default {
   methods: {
     addToCart(product) {
       this.$store.commit("ADD_TO_CART", product);
+      this.$router.push({ name: "products" });
       const cartOpen = this.$store.state.cartModalOpen;
       if (!cartOpen) {
         this.$store.commit("TOGGLE_CART");

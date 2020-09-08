@@ -36,7 +36,7 @@ export default {
   methods: {
     reset() {
       if (confirm("Är du säker på att du vill rensa kundkorgen?")) {
-        this.$router.push({ name: "Home" });
+        this.$router.push({ name: "products" });
         location.reload();
       } else {
         return;
