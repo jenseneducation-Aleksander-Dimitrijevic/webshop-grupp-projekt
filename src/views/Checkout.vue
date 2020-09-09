@@ -9,10 +9,7 @@
             <p>${{ order.price * order.count }}</p>
           </section>
           <section :style="{ textAlign: 'center' }">
-            <img
-              :src="require('../assets/' + order.img + '.png')"
-              alt="product image"
-            />
+            <img :src="require('../assets/' + order.img + '.png')" alt="product image" />
             <p>X {{ order.count }}</p>
           </section>
         </div>
@@ -26,15 +23,10 @@
           </p>
           <p class="changeAdress" @click="handleChangeAddress">Change adress</p>
         </div>
-        <input
-          type="radio"
-          v-model="isClicked"
-          id="set-adress-btn"
-          :value="true"
-        />
+        <input type="radio" v-model="isClicked" id="set-adress-btn" :value="true" />
       </div>
       <div class="total">
-        <span>Total: ${{ displayTotalAmount }}</span>
+        <span>Total: ${{ $store.getters.displayTotalAmount }}</span>
       </div>
 
       <button
@@ -43,9 +35,11 @@
         @click="handleProceed"
         :class="{ complete: proceed, setLoading: isLoading }"
       >
-        <span v-if="!isLoading">{{
+        <span v-if="!isLoading">
+          {{
           proceed ? "Your order is on the way!" : "Proceed"
-        }}</span>
+          }}
+        </span>
         <div class="loader" v-else></div>
       </button>
     </div>
@@ -53,7 +47,6 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
   data() {
     return {
@@ -82,8 +75,6 @@ export default {
       }, 2000);
     },
   },
-
-  computed: { ...mapGetters(["displayTotalAmount"]) },
 };
 </script>
 

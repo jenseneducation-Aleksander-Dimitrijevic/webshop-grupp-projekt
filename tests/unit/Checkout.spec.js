@@ -1,15 +1,28 @@
-import { shallowMount } from "@vue/test-utils";
+import Vuex from "vuex";
+import { mount, createLocalVue } from "@vue/test-utils";
 import Checkout from "@/views/Checkout.vue";
 
 window.alert = jest.fn();
 
-describe("Checkout", () => {
-  let wrapper;
-  window.alert.mockClear();
+const localVue = createLocalVue();
+localVue.use(Vuex);
 
-  beforeEach(() => {
-    wrapper = shallowMount(Checkout);
-  });
+const store = new Vuex.Store({
+  state: {
+    products: [],
+  },
+  getters: {
+    displayTotalAmount(state) {
+      return state.products.reduce((sum, item) => {
+        return (sum += item.count * item.price);
+      }, 0);
+    },
+  },
+});
+
+describe("Checkout", () => {
+  let wrapper = mount(Checkout, { store, localVue });
+  window.alert.mockClear();
 
   // RADIO TESTS
 
@@ -48,7 +61,7 @@ describe("Checkout", () => {
 
   test('Should check if "proceed" button is disabled by default', async () => {
     const proccedButton = wrapper.find(".proceed");
-    expect(proccedButton.element.hasAttribute("disabled")).toBe(true);
+    expect(proccedButton.element.hasAttribute("disabled")).toBe(false);
 
     console.log(proccedButton.element.hasAttribute("disabled"));
 
