@@ -13,3 +13,36 @@ KRAVSPEC: https://docs.google.com/document/d/1reQqsBqltEFpkPTK0-y8jc5JKH9MIMcQ3M
 
 Retrospective:
 
+# Vad har ni lärt er av projektet?
+
+    Vi har lärt oss mer om hur testning fungerar under ett projekt och att det ibland inte blir så som man har tänkt sig. 
+    Det dyker upp fler test när man börjar koda sina komponenter men när man blir bättre på att testa så går det nog snabbare.
+
+# Hur fördelade ni arbetet? Vem gjorde vad?
+
+    Alla i gruppen fick sina arbetsuppgifter när vi först började planera hur webbshoppen skulle se ut. Aleksander startade upp ett git-repo där
+    de andra i gruppen tilldelades som collaborator. Aleksander skapade sedan en branch, "dev" där alla pushade upp sina egna brancher.
+    Sedan gick vi igenom trello, där alla fick välja ut sina user stories. 
+    Patrick skissade ihop en mockup som vi alla försökte följa till punkt och pricka. 
+    Max byggde komponenterna card och header samt contact vyn. Patrick skissade mockup och checkout komponenten. Elam byggde navbar, sido menyn och about vyn.
+    Aleksander byggde cart komponenten och samarbetade med Patrick för checkout komponenten.
+
+# Fundera över vilka ändringar ni skulle göra om ni skulle fortsätta med projektet i samma grupp:
+
+    * Vad skulle vi börja göra?
+        Vi känner alla att vi började väldigt bra i början på projektet då vi planerade och kommunicerade vad varje person skulle utföra.
+
+    * Vad skulle vi sluta göra?
+        När det gäller testning så kom vi alla överens om att vi skulle ha slutat testa varje enskilt element i en komponent exempelvis h1, p, span mfl 
+        och istället testa sånt som användaren interagerar med som exempelvis en knapp, vad som händer när man trycker på knappen etcetera.
+
+    * Vad skulle vi fortsätta göra?
+        Designa mer, lägga till lite fler funktioner som sortera, filtrera, söka på produkt osv. Men vi är alla eniga om att sidan ser bra ut för detta ändamål
+        och att alla tester har gått som det ska.
+
+# Vilka krav var svårast respektive lättast att skriva test för?
+    Vi hade problem med att få bort router-link varningar när vi testade och detta gjorde så att vi 
+    tog lärdom av att lösa problemet genom att kolla på olika dokumentationer via nätet.
+
+# Fanns det något ni hade tänkt göra, som ni inte hann med? Vad berodde det på?
+    Vi ville ha fler funktioner på sidan som filter, sortering och kunna söka efter en produkt men då tiden inte räckte till hann vi tyvärr inte med detta.
